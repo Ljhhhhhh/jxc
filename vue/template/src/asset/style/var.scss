@@ -1,0 +1,11 @@
+@import "~element-ui/packages/theme-chalk/src/common/var";
+
+//设定移动端的最大宽度，只能是number类型
+$max-mobile-width: $--sm;
+
+//覆盖element颜色
+$--color-primary: #1890ff;
+$--color-success: #21BA45;
+$--color-warning: #FF5722;
+$--color-danger: #F44336;
+$--color-info: #009688;

@@ -1,0 +1,26 @@
+@import "~@/style/var";
+@import "./component/checkbox/style";
+
+.setting-drawer {
+    overflow-y: auto;
+
+    .el-drawer__body {
+        padding: $--dialog-padding-primary;
+    }
+
+    &-item {
+        display: flex;
+        justify-content: space-between;
+        color: $--color-text-regular;
+        font-size: 14px;
+        padding: 12px 0;
+    }
+
+    .el-select {
+        width: 80px;
+    }
+
+    .el-button {
+        width: 100%;
+    }
+}

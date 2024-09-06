@@ -1,0 +1,38 @@
+{
+  "name": "my",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "svgo": "svgo -f src/asset/icon/svg --config=src/asset/icon/svgo.yml"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "el-admin-layout": "0.0.2",
+    "element-ui": "^2.13.2",
+    "nprogress": "^0.2.0",
+    "pako": "^1.0.11",
+    "vue": "^2.6.11",
+    "vue-router": "^3.3.4",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
+    "sass": "^1.26.10",
+    "sass-loader": "^8.0.2",
+    "svg-sprite-loader": "^4.3.0",
+    "svgo": "^1.3.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

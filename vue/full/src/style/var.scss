@@ -1,0 +1,25 @@
+@import "~element-ui/packages/theme-chalk/src/common/var";
+
+//设定移动端的最大宽度，只能是number类型
+$max-mobile-width: $--sm;
+
+//覆盖element颜色
+$--color-primary: #1890ff;
+$--color-success: #21BA45;
+$--color-warning: #FF5722;
+$--color-danger: #F44336;
+$--color-info: #009688;
+
+//dialog距离顶部的距离，用于<el-dialog>的top属性、<el-dialog>中滚动区域的最大高度
+$dialog-top: 100px;
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+    primary: $--color-primary;
+    info: $--color-info;
+    success: $--color-success;
+    danger: $--color-danger;
+    warning: $--color-warning;
+    dialogTop: $dialog-top;
+}

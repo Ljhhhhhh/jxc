@@ -1,0 +1,173 @@
+@import "./var.scss";
+@import "./cover/var.scss";
+@import "./mixin.scss";
+@import "~element-ui/packages/theme-chalk/src/index.scss";
+@import "~@ele/style/index.scss";
+//layout中的样式需要覆盖element-ui原定义，所以放element-ui的后面
+@import "~@/layout/style.scss";
+@import "./cover/element-ui.scss";
+@import "./nprogress.scss";
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+a:focus,
+a:active,
+div:focus {
+    outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+
+//非移动端的滚动条样式修改
+@include pc {
+    ::-webkit-scrollbar {
+        width: 6px;
+
+        &:horizontal {
+            height: 6px;
+        }
+
+        &-thumb {
+            width: 6px;
+            border-radius: 5px;
+            background-color: rgba($--color-primary, 0.8);
+
+            &:hover {
+                background-color: $--color-primary;
+            }
+        }
+    }
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.table-container {
+    margin-top: 10px;
+}
+
+.table-add-btn {
+    margin: 8px 0;
+
+    .el-button {
+        width: 100%;
+    }
+}
+
+.table-image {
+    cursor: pointer;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.card-container {
+    position: relative;
+
+    .el-scrollbar__wrap {
+        overflow-x: hidden;
+    }
+}
+
+.button-group {
+    .el-button {
+        margin-top: 10px;
+        margin-right: 10px;
+
+        & + .el-button {
+            margin-left: 0;
+        }
+    }
+}
+
+//小圆点
+.dot {
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    margin-right: 11px;
+    background-color: $--color-info;
+
+    &.success {
+        background-color: $--color-success;
+    }
+
+    &.primary {
+        background-color: $--color-primary;
+    }
+
+    &.error {
+        background-color: $--color-danger;
+    }
+}
+
+//仅用于演示用例
+.tip-row {
+    position: relative;
+    z-index: 1;
+    background-color: #fafafa;
+    padding: 8px 24px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    display: block;
+    line-height: 32px;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    color: #337ab7;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    * + & {
+        margin-top: 40px;
+    }
+
+    a {
+        color: #337ab7;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}

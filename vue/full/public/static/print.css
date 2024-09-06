@@ -1,0 +1,71 @@
+.order-form {
+  font-family: SimSun, serif; /* 使用宋体 */
+  max-width: 210mm; /* A4纸宽度 */
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
+  font-size: 12pt;
+}
+
+.payment-terms {
+  margin-top: 20px;
+  font-size: 12pt;
+}
+
+.signatures {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 40px;
+}
+
+.signature-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stamp {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.stamp img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+@media print {
+  .order-form {
+    border: none;
+    padding: 0;
+  }
+
+  button {
+    display: none;
+  }
+}

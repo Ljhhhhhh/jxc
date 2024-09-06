@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/jxc?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: Ljh19950615
+  redis:
+    host: localhost
+    port: 6379
+
+socket:
+  hostname: localhost
+  port: 12580
+
+qiniu:
+  access-key: 7g_lh82F_IRcaMJF8xT9g4ywbAz402s6Dur7CkEE
+  secret-key: 6mQjg2qpw08Id2Vj5g59t1XjOoGfZGfBIsnKqBJD
+  bucket: myjxc

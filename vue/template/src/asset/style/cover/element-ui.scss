@@ -1,0 +1,45 @@
+// cover some element-ui styles
+.el-backtop {
+    border-radius: 0;
+}
+
+.el-drawer {
+    &__body {
+        overflow-y: overlay;
+    }
+}
+
+.el-message {
+    @include deep-shadow;
+    @include max-width-on-mobile;
+    border-width: 0;
+
+    .el-message__icon,
+    .el-message__content {
+        color: $--color-white !important;
+    }
+
+    &.el-message--success {
+        background-color: $--color-success;
+    }
+
+    &.el-message--info {
+        background-color: $--color-primary;
+    }
+
+    &.el-message--warning {
+        background-color: $--color-warning;
+    }
+
+    &.el-message--error {
+        background-color: $--color-danger;
+    }
+}
+
+.el-scrollbar {
+    height: 100%;
+
+    .el-scrollbar__wrap {
+        -webkit-overflow-scrolling: touch;
+    }
+}
