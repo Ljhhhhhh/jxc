@@ -1,11 +1,11 @@
-const path = require('path')
-const sass = require('sass')
-const { defineConfig } = require('@vue/cli-service')
-const settings = require('./src/config')
-const isDev = process.env.NODE_ENV === 'development'
+const path = require('path');
+const sass = require('sass');
+const { defineConfig } = require('@vue/cli-service');
+const settings = require('./src/config');
+const isDev = process.env.NODE_ENV === 'development';
 
 function resolve(dir) {
-  return path.join(__dirname, dir)
+  return path.join(__dirname, dir);
 }
 
 module.exports = defineConfig({
@@ -20,33 +20,34 @@ module.exports = defineConfig({
     loaderOptions: {
       css: {
         modules: {
-          auto: /var.scss$/
-        }
+          auto: /var.scss$/,
+        },
       },
       sass: {
         // https://github.com/sass/dart-sass/issues/1388#issuecomment-916125648
         sassOptions: {
           outputStyle: 'expanded',
-          logger: sass.Logger.silent
-        }
-      }
-    }
+          logger: sass.Logger.silent,
+        },
+      },
+    },
   },
   configureWebpack: {
     name: settings.title,
     resolve: {
       alias: {
+        '~': resolve('public/static'),
         '@': resolve('src'),
-        '@ele': resolve('element-ui-personal')
-      }
+        '@ele': resolve('element-ui-personal'),
+      },
     },
     devServer: {
       port: process.env.port || 8079,
       client: {
         overlay: {
           warnings: true,
-          errors: true
-        }
+          errors: true,
+        },
       },
       proxy: {
         [settings.apiPrefix]: {
@@ -55,24 +56,19 @@ module.exports = defineConfig({
           secure: false,
           changeOrigin: true,
           pathRewrite: {
-            [`^${settings.apiPrefix}`]: ''
-          }
-        }
-      }
-    }
+            [`^${settings.apiPrefix}`]: '',
+          },
+        },
+      },
+    },
   },
   chainWebpack(config) {
-    config.plugins.delete('preload')
-    config.plugins.delete('prefetch')
+    config.plugins.delete('preload');
+    config.plugins.delete('prefetch');
 
     // set svg-sprite-loader
-    config
-      .module
-      .rule('svg')
-      .exclude.add(resolve('src/asset/icon'))
-      .end()
-    config
-      .module
+    config.module.rule('svg').exclude.add(resolve('src/asset/icon')).end();
+    config.module
       .rule('icons')
       .test(/\.svg$/)
       .include.add(resolve('src/asset/icon'))
@@ -80,24 +76,23 @@ module.exports = defineConfig({
       .use('svg-sprite-loader')
       .loader('svg-sprite-loader')
       .options({ symbolId: 'icon-[name]' })
-      .end()
+      .end();
 
-    config.when(!isDev, config => {
+    config.when(!isDev, (config) => {
       //将css合并到一个文件中
       //https://github.com/vuejs/vue-cli/issues/2843
-      config
-        .optimization
+      config.optimization
         .removeEmptyChunks(true)
         .splitChunks({
           cacheGroups: {
             style: {
               name: 'style',
               type: 'css/mini-extract',
-              chunks: 'all'
-            }
-          }
+              chunks: 'all',
+            },
+          },
         })
-        .end()
-    })
-  }
-})
+        .end();
+    });
+  },
+});

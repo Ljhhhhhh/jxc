@@ -7,14 +7,7 @@
   flex-direction: column;
   height: 100%;
   overflow: auto;
-
-  canvas {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    background-color: $background-color;
-  }
+  background-color: $background-color;
 
   .login-container {
     flex: 1;

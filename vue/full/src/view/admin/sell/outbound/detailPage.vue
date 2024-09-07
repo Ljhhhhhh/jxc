@@ -131,6 +131,11 @@
       :cid="row ? row.cid : null"
       @select="selectStock"
     />
+    <export-order
+      :visible.sync="dialogVisible"
+      :orderInfo="form"
+      @close="dialogVisible = false"
+    />
   </detail-page>
 </template>
 
@@ -141,6 +146,7 @@ import OrderSelector from './component/OrderSelector';
 import StockSelector from './component/StockSelector';
 import { getDetailById as getStockDetail } from '@/api/stock/current';
 import { getSubById as getParentSubById } from '@/api/doc/sell/order';
+import ExportOrder from './component/ExportOrder';
 import {
   getById,
   add,
@@ -160,12 +166,13 @@ export default {
 
   mixins: [docDetailMixin],
 
-  components: { OrderSelector, StockSelector },
+  components: { OrderSelector, StockSelector, ExportOrder },
 
   data() {
     this.docName = '销售出库单';
     this.api = { getById, add, update, commit, withdraw, pass, reject };
     return {
+      dialogVisible: false,
       form: {
         pid: null,
       },
@@ -204,7 +211,8 @@ export default {
 
   methods: {
     handleExport() {
-      this.$router.push(`/sell/orderForm`);
+      this.dialogVisible = true;
+      //   this.$router.push(`/sell/orderForm`);
     },
     afterInit() {
       if (this.type === 'add') return Promise.resolve();
